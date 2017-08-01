@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201707121858588_InitDatabase.Designer.cs">
       <DependentUpon>201707121858588_InitDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708011741104_DATAbgangNullable.cs" />
+    <Compile Include="Migrations\201708011741104_DATAbgangNullable.Designer.cs">
+      <DependentUpon>201708011741104_DATAbgangNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\BaseEntityWithName.cs" />
     <Compile Include="Models\Base\BaseEntity.cs" />
@@ -164,6 +168,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707121858588_InitDatabase.resx">
       <DependentUpon>201707121858588_InitDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708011741104_DATAbgangNullable.resx">
+      <DependentUpon>201708011741104_DATAbgangNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

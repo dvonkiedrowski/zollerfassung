@@ -11,7 +11,7 @@ namespace Zollerfassung.Models
 
         public DateTime DAT_Zugang { get; set; }
 
-        public DateTime DAT_Abgang { get; set; }
+        public DateTime? DAT_Abgang { get; set; }
 
         public int Menge { get; set; }
 
