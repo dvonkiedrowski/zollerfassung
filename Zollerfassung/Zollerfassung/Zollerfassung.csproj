@@ -128,6 +128,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiControllers\Base\BaseApiController.cs" />
+    <Compile Include="ApiControllers\ZollerfassungController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ZollerfassungController.cs" />

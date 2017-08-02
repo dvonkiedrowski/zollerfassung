@@ -6,6 +6,11 @@ namespace Zollerfassung.Models
 {
     public class ZollerfassungDbContext : DbContext
     {
+        public ZollerfassungDbContext()
+        {
+            Configuration.ProxyCreationEnabled = false;
+        }
+
         public DbSet<Herkunft> Herkunft { get; set; }
 
         public DbSet<Lieferant> Lieferant { get; set; }

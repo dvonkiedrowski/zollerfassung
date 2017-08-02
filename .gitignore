@@ -7,3 +7,7 @@ Zollerfassung/Zollerfassung/App_Data/Zollerfassung.mdf
 Zollerfassung/Zollerfassung/App_Data/Zollerfassung_log.ldf
 Zollerfassung/Zollerfassung/Zollerfassung.csproj.user
 Zollerfassung/.vs/
+/Zollerfassung/Zollerfassung/.vs
+/Zollerfassung/Zollerfassung/node_modules
+/Zollerfassung/Zollerfassung/packages
+/Zollerfassung/Zollerfassung/typings
