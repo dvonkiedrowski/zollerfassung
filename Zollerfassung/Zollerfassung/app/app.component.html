@@ -1,0 +1,32 @@
+﻿<table>
+    <thead>
+        <tr>
+            <th>Lfd. Nr.</th>
+            <th>Lieferschein-Nr.</th>
+            <th>Kennzeichen</th>
+            <th>Spediteur</th>
+            <th>Lieferant</th>
+            <th>Herkunft</th>
+            <th>Gas-Art</th>
+            <th>Datum Zugang</th>
+            <th>Kg-Menge</th>
+            <th>Datum Abgang</th>
+            <th>Anmerkung</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let zoll of zollerfassung">
+            <td>{{zoll.ID}}</td>
+            <td>{{zoll.LIEF_NR}}</td>
+            <td>{{zoll.Kennzeichen}}</td>
+            <td>{{zoll.Spediteur?.Name}}</td>
+            <td>{{zoll.Lieferant?.Name}}</td>
+            <td>{{zoll.Herkunft?.Name}}</td>
+            <td>{{zoll.Gasart?.Name}}</td>
+            <td>{{zoll.DAT_Zugang}}</td>
+            <td>{{zoll.Menge}}</td>
+            <td>{{zoll.DAT_Abgang}}</td>
+            <td>{{zoll.Bemerkung}}</td>
+        </tr>
+    </tbody>
+</table>

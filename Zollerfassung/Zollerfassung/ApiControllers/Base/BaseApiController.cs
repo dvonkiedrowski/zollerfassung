@@ -17,24 +17,24 @@ namespace Zollerfassung.ApiControllers.Base
         }
 
         // GET api/<controller>
-        public IEnumerable<T> Get()
+        public virtual IEnumerable<T> Get()
         {
             return context.Set<T>();
         }
 
         // GET api/<controller>/5
-        public T Get(int id)
+        public virtual T Get(int id)
         {
             return context.Set<T>().FirstOrDefault(x => x.ID == id);
         }
 
         // POST api/<controller>
-        public void Post([FromBody]T value)
+        public virtual void Post([FromBody]T value)
         {
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]T value)
+        public virtual void Put(int id, [FromBody]T value)
         {
         }
     }
