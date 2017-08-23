@@ -8,7 +8,6 @@ namespace Zollerfassung.Models
     {
         public ZollerfassungDbContext()
         {
-            Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<Herkunft> Herkunft { get; set; }
