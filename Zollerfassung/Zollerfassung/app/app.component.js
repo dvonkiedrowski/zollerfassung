@@ -45,11 +45,9 @@ var AppComponent = (function () {
             .subscribe(function (zollerfassung) {
             _this.data = zollerfassung;
             _this.length = _this.data.length;
+            _this.onChangeTable(_this.config);
         });
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.onChangeTable(this.config);
-    };
     AppComponent.prototype.changePage = function (page, data) {
         if (data === void 0) { data = this.data; }
         var start = (page.page - 1) * page.itemsPerPage;
@@ -105,7 +103,7 @@ var AppComponent = (function () {
         filteredData.forEach(function (item) {
             var flag = false;
             _this.columns.forEach(function (column) {
-                if (item[column.name].toString().match(_this.config.filtering.filterString)) {
+                if (item[column.name] && item[column.name].toString().match(_this.config.filtering.filterString)) {
                     flag = true;
                 }
             });

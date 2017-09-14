@@ -9,6 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var forms_1 = require("@angular/forms");
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ng2_table_1 = require("ng2-table/ng2-table");
 var app_component_1 = require("./app.component");
 var AppModule = (function () {
@@ -18,7 +20,13 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, ng2_table_1.Ng2TableModule],
+        imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpModule,
+            ng2_table_1.Ng2TableModule,
+            ngx_bootstrap_1.PaginationModule.forRoot(),
+            forms_1.FormsModule
+        ],
         declarations: [app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent]
     })

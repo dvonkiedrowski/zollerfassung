@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map'
     templateUrl: '/app/app.component.html'
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
     public rows: Array<any> = [];
     public columns: Array<any> = [
         { title: 'Lfd. Nr.', name: 'ID' },
@@ -48,11 +48,8 @@ export class AppComponent implements OnInit {
             .subscribe(zollerfassung => {
                 this.data = zollerfassung;
                 this.length = this.data.length;
+                this.onChangeTable(this.config);
             });
-    }
-
-    public ngOnInit(): void {
-        this.onChangeTable(this.config);
     }
 
     public changePage(page: any, data: Array<any> = this.data): Array<any> {
@@ -115,7 +112,7 @@ export class AppComponent implements OnInit {
         filteredData.forEach((item: any) => {
             let flag = false;
             this.columns.forEach((column: any) => {
-                if (item[column.name].toString().match(this.config.filtering.filterString)) {
+                if (item[column.name] && item[column.name].toString().match(this.config.filtering.filterString)) {
                     flag = true;
                 }
             });
