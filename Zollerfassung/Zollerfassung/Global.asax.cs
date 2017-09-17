@@ -9,6 +9,8 @@ using System.Web.SessionState;
 using System.Web.Http;
 using System.Data.Entity;
 using Zollerfassung.Models;
+using AutoMapper;
+using Zollerfassung.ViewModels;
 
 namespace Zollerfassung
 {
@@ -17,6 +19,15 @@ namespace Zollerfassung
         void Application_Start(object sender, EventArgs e)
         {
             // Code, der beim Anwendungsstart ausgeführt wird
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<Models.Zollerfassung, ZollerfassungDto>();
+                cfg.CreateMap<ZollerfassungDto, Models.Zollerfassung>();
+                cfg.CreateMap<Spediteur, BaseDtoWithName>();
+                cfg.CreateMap<Herkunft, BaseDtoWithName>();
+                cfg.CreateMap<Lieferant, BaseDtoWithName>();
+                cfg.CreateMap<Gasart, BaseDtoWithName>();
+            });
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

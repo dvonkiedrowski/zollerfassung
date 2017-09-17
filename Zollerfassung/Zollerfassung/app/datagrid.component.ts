@@ -5,11 +5,11 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 @Component({
-    selector: 'my-app',
-    templateUrl: '/app/app.component.html'
+    selector: 'data-grid',
+    templateUrl: '/app/datagrid.component.html'
 })
 
-export class AppComponent {
+export class DataGrid {
     public rows: Array<any> = [];
     public columns: Array<any> = [
         { title: 'Lfd. Nr.', name: 'ID' },

@@ -137,4 +137,4 @@ DataGrid = __decorate([
     __metadata("design:paramtypes", [http_1.Http])
 ], DataGrid);
 exports.DataGrid = DataGrid;
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=datagrid.component.js.map

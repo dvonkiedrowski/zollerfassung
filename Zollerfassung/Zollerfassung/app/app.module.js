@@ -12,7 +12,8 @@ var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ng2_table_1 = require("ng2-table/ng2-table");
-var app_component_1 = require("./app.component");
+var datagrid_component_1 = require("./datagrid.component");
+var addButton_component_1 = require("./addButton.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,12 +24,15 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
-            ng2_table_1.Ng2TableModule,
+            ngx_bootstrap_1.ModalModule.forRoot(),
+            ngx_bootstrap_1.BsDatepickerModule.forRoot(),
             ngx_bootstrap_1.PaginationModule.forRoot(),
-            forms_1.FormsModule
+            ng2_table_1.Ng2TableModule,
+            forms_1.FormsModule,
+            forms_1.ReactiveFormsModule
         ],
-        declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+        declarations: [datagrid_component_1.DataGrid, addButton_component_1.AddButton],
+        bootstrap: [datagrid_component_1.DataGrid, addButton_component_1.AddButton]
     })
 ], AppModule);
 exports.AppModule = AppModule;

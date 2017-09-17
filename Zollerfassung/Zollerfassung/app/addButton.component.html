@@ -1,0 +1,98 @@
+﻿<div class="row form-group margin-top-10">
+    <div class="col-md-12">
+        <button type="button"
+                class="btn btn-primary pull-right"
+                (click)="openModal(template)">
+            Neu Erfassen
+        </button>
+    </div>
+</div>
+
+<template #template>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Zollerfassung</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row form-group">
+                <label for="liefno" class="col-md-3 col-form-label">Lieferschein-Nr.</label>
+                <div class="col-md-9">
+                    <input id="liefno" type="text" class="form-control" [(ngModel)]="model.LIEF_NR" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="kennz" class="col-md-3 col-form-label">Kennzeichen</label>
+                <div class="col-md-9">
+                    <input id="kennz" type="text" class="form-control" [(ngModel)]="model.Kennzeichen" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="spediteur" class="col-md-3 col-form-label">Spediteur</label>
+                <div class="col-md-9">
+                    <select [(ngModel)]="model.Spediteur" id="spediteur" class="form-control">
+                        <option *ngFor="let c of spediteure" [ngValue]="c">{{c.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="lieferant" class="col-md-3 col-form-label">Lieferant</label>
+                <div class="col-md-9">
+                    <select [(ngModel)]="model.Lieferant" id="lieferant" class="form-control">
+                        <option *ngFor="let c of lieferanten" [ngValue]="c">{{c.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="herkunft" class="col-md-3 col-form-label">Herkunft</label>
+                <div class="col-md-9">
+                    <select [(ngModel)]="model.Herkunft" id="herkunft" class="form-control">
+                        <option *ngFor="let c of herkuenfte" [ngValue]="c">{{c.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="gasart" class="col-md-3 col-form-label">Gasart</label>
+                <div class="col-md-9">
+                    <select [(ngModel)]="model.Gasart" id="gasart" class="form-control">
+                        <option *ngFor="let c of gasarten" [ngValue]="c">{{c.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="datzu" class="col-md-3 col-form-label">Datum Zugang</label>
+                <div class="col-md-9">
+                    <input id="datzu" [(ngModel)]="model.DAT_Zugang" placeholder="Wähle Datum..." type="text" class="form-control" bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="menge" class="col-md-3 col-form-label">Menge (kg)</label>
+                <div class="col-md-9">
+                    <input id="menge" type="text" class="form-control" [(ngModel)]="model.Menge" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="datab" class="col-md-3 col-form-label">Datum Abgang</label>
+                <div class="col-md-9">
+                    <input id="datab" [(ngModel)]="model.DAT_Abgang" placeholder="Wähle Datum..." type="text" class="form-control" bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="bemerk" class="col-md-3 col-form-label">Anmerkung</label>
+                <div class="col-md-9">
+                    <input id="bemerk" type="text" class="form-control" [(ngModel)]="model.Bemerkung" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Abbrechen</button>
+                    <button type="button" class="btn btn-primary pull-right" (click)="onSave()">Speichern</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

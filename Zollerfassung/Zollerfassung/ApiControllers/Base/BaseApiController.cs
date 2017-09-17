@@ -22,7 +22,6 @@ namespace Zollerfassung.ApiControllers.Base
         // GET api/<controller>
         public virtual IEnumerable<TDto> Get()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<TEntity, TDto>());
             var dbResult = context.Set<TEntity>().ToList();
             return Mapper.Map<List<TEntity>, IEnumerable<TDto>>(dbResult);
         }
@@ -30,7 +29,6 @@ namespace Zollerfassung.ApiControllers.Base
         // GET api/<controller>/5
         public virtual TDto Get(int id)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<TEntity, TDto>());
             var dbResult = context.Set<TEntity>().FirstOrDefault(x => x.ID == id);
             return Mapper.Map<TEntity, TDto>(dbResult);
         }
@@ -38,7 +36,6 @@ namespace Zollerfassung.ApiControllers.Base
         // POST api/<controller>
         public virtual TEntity Post([FromBody]TDto value)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<TDto, TEntity>());
             var mappingResult = Mapper.Map<TEntity>(value);
             context.Set<TEntity>().Add(mappingResult);
             context.SaveChanges();
@@ -48,7 +45,6 @@ namespace Zollerfassung.ApiControllers.Base
         // PUT api/<controller>/5
         public virtual void Put(int id, [FromBody]TDto value)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<TDto, TEntity>());
             var mappingResult = Mapper.Map<TEntity>(value);
             var dbResult = context.Set<TEntity>().FirstOrDefault(x => x.ID == id);
             context.Entry(dbResult).CurrentValues.SetValues(mappingResult);
