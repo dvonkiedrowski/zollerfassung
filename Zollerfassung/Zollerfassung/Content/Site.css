@@ -19,3 +19,13 @@ textarea {
 .margin-top-10 {
     margin-top: 10px;
 }
+
+/*Date picker container*/ 
+bs-datepicker-container {
+    z-index: 3000;
+}
+
+.modal-body {
+    height: 450px;
+    overflow-y: auto;
+}

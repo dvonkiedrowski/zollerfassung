@@ -64,9 +64,8 @@
             <div class="row form-group">
                 <label for="datzu" class="col-md-3 col-form-label">Datum Zugang</label>
                 <div class="col-md-9">
-                    <input [(ngModel)]="model.DAT_Zugang" placeholder="Wähle Datum..." type="text" bsDatepicker #datZu="bsDatepicker">
+                    <input class="form-control" [(ngModel)]="model.DAT_Zugang" placeholder="Wähle Datum..." type="text" bsDatepicker #datZu="bsDatepicker">
                 </div>
-                <button class="btn btn-success" (click)="datZu.toggle()">Date Picker popup</button>
             </div>
             <div class="row form-group">
                 <label for="menge" class="col-md-3 col-form-label">Menge (kg)</label>

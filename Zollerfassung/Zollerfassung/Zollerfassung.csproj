@@ -114,8 +114,10 @@
   <ItemGroup>
     <Content Include="app\addbutton.component.html" />
     <Content Include="app\datagrid.component.html" />
+    <Content Include="bs-datepicker-view.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bs-datepicker.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
