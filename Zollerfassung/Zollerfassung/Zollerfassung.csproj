@@ -195,6 +195,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\addbutton.component.ts" />
     <TypeScriptCompile Include="app\datagrid.component.ts" />
+    <TypeScriptCompile Include="app\main.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
   </ItemGroup>

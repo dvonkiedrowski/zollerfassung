@@ -19,6 +19,7 @@ var AddButton = (function () {
         var _this = this;
         this.http = http;
         this.modalService = modalService;
+        this.onSuccess = new core_1.EventEmitter();
         this.gasarten = [];
         this.herkuenfte = [];
         this.lieferanten = [];
@@ -30,8 +31,8 @@ var AddButton = (function () {
             Herkunft: "",
             Gasart: "",
             Lieferant: "",
-            DAT_Zugang: "",
-            DAT_Abagng: "",
+            DAT_Zugang: new Date(2017, 5, 10),
+            DAT_Abgang: "",
             Menge: "",
             Bemerkung: ""
         };
@@ -57,15 +58,21 @@ var AddButton = (function () {
         });
     }
     AddButton.prototype.onSave = function () {
+        var _this = this;
         this.modalRef.hide();
-        this.http.post('/api/Zollerfassung', this.model).subscribe();
-        console.log('save');
+        this.http.post('/api/Zollerfassung', this.model).subscribe(function (data) {
+            _this.onSuccess.emit(null);
+        });
     };
     AddButton.prototype.openModal = function (template) {
         this.modalRef = this.modalService.show(template);
     };
     return AddButton;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], AddButton.prototype, "onSuccess", void 0);
 AddButton = __decorate([
     core_1.Component({
         selector: 'add-button',
@@ -74,4 +81,4 @@ AddButton = __decorate([
     __metadata("design:paramtypes", [http_1.Http, ngx_bootstrap_1.BsModalService])
 ], AddButton);
 exports.AddButton = AddButton;
-//# sourceMappingURL=addButton.component.js.map
+//# sourceMappingURL=addbutton.component.js.map

@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map'
 })
 
 export class DataGrid {
+    http: Http;
     public rows: Array<any> = [];
     public columns: Array<any> = [
         { title: 'Lfd. Nr.', name: 'ID' },
@@ -40,7 +41,12 @@ export class DataGrid {
     private data: Array<any>;
 
     constructor(http: Http) {
-        http.get('/api/Zollerfassung')
+        this.http = http;
+        this.reloadData();
+    }
+
+    public reloadData() {
+        this.http.get('/api/Zollerfassung')
             // Call map on the response observable to get the parsed people object
             .map(res => res.json())
             // Subscribe to the observable to get the parsed people object and attach it to the

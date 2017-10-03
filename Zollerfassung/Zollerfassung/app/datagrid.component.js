@@ -14,7 +14,6 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var DataGrid = (function () {
     function DataGrid(http) {
-        var _this = this;
         this.rows = [];
         this.columns = [
             { title: 'Lfd. Nr.', name: 'ID' },
@@ -40,14 +39,19 @@ var DataGrid = (function () {
             filtering: { filterString: '' },
             className: ['table-striped', 'table-bordered']
         };
-        http.get('/api/Zollerfassung')
+        this.http = http;
+        this.reloadData();
+    }
+    DataGrid.prototype.reloadData = function () {
+        var _this = this;
+        this.http.get('/api/Zollerfassung')
             .map(function (res) { return res.json(); })
             .subscribe(function (zollerfassung) {
             _this.data = zollerfassung;
             _this.length = _this.data.length;
             _this.onChangeTable(_this.config);
         });
-    }
+    };
     DataGrid.prototype.changePage = function (page, data) {
         if (data === void 0) { data = this.data; }
         var start = (page.page - 1) * page.itemsPerPage;

@@ -1,4 +1,4 @@
-﻿import { Component, TemplateRef  } from '@angular/core';
+﻿import { Component, TemplateRef, Output, EventEmitter  } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { Http } from '@angular/http';
@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map'
 })
 
 export class AddButton {
+    @Output() onSuccess = new EventEmitter();
     public bsConfig: Partial<BsDatepickerConfig>;
     public gasarten: Array<any> = [];
     public herkuenfte: Array<any> = [];
@@ -25,8 +26,8 @@ export class AddButton {
         Herkunft: "",
         Gasart: "",
         Lieferant: "",
-        DAT_Zugang: "",
-        DAT_Abagng: "",
+        DAT_Zugang: new Date(2017, 5, 10),
+        DAT_Abgang: "",
         Menge: "",
         Bemerkung: ""
     };
@@ -58,12 +59,12 @@ export class AddButton {
 
     public onSave(): void {
         this.modalRef.hide();
-        this.http.post('/api/Zollerfassung', this.model).subscribe();
-        console.log('save');
+        this.http.post('/api/Zollerfassung', this.model).subscribe(data => {
+            this.onSuccess.emit(null);
+        });
     }
 
     public openModal(template: TemplateRef<any>): void {
         this.modalRef = this.modalService.show(template);
     }
-
 }

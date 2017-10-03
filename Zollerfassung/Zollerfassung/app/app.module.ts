@@ -9,6 +9,7 @@ import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { de } from 'ngx-bootstrap/locale';
 import { DataGrid } from './datagrid.component';
 import { AddButton } from './addButton.component';
+import { Main } from './main.component';
 
 @NgModule({
     imports: [
@@ -21,8 +22,8 @@ import { AddButton } from './addButton.component';
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [DataGrid, AddButton],
-    bootstrap: [DataGrid, AddButton]
+    declarations: [DataGrid, AddButton, Main],
+    bootstrap: [Main]
 })
 
 export class AppModule { }
