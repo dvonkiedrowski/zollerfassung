@@ -34,12 +34,13 @@ namespace Zollerfassung.ApiControllers.Base
         }
 
         // POST api/<controller>
-        public virtual TEntity Post([FromBody]TDto value)
+        public virtual TDto Post([FromBody]TDto value)
         {
             var mappingResult = Mapper.Map<TEntity>(value);
             context.Set<TEntity>().Add(mappingResult);
             context.SaveChanges();
-            return mappingResult;
+            value = Mapper.Map<TDto>(mappingResult);
+            return value;
         }
 
         // PUT api/<controller>/5
