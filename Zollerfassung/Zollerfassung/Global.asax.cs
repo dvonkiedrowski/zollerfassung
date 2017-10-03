@@ -26,6 +26,10 @@ namespace Zollerfassung
                 cfg.CreateMap<Herkunft, BaseDtoWithName>();
                 cfg.CreateMap<Lieferant, BaseDtoWithName>();
                 cfg.CreateMap<Gasart, BaseDtoWithName>();
+                cfg.CreateMap<BaseDtoWithName, Spediteur>();
+                cfg.CreateMap<BaseDtoWithName, Herkunft>();
+                cfg.CreateMap<BaseDtoWithName, Lieferant>();
+                cfg.CreateMap<BaseDtoWithName, Gasart>();
             });
 
             AreaRegistration.RegisterAllAreas();

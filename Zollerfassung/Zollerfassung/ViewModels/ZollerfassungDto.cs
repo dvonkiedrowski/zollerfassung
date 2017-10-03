@@ -17,11 +17,19 @@ namespace Zollerfassung.ViewModels
 
         public string Bemerkung { get; set; }
 
+        public BaseDtoWithName Spediteur { get; set; }
+
         public string SpediteurName { get; set; }
+
+        public BaseDtoWithName Herkunft { get; set; }
 
         public string HerkunftName { get; set; }
 
+        public BaseDtoWithName Gasart { get; set; }
+
         public string GasartName { get; set; }
+
+        public BaseDtoWithName Lieferant { get; set; }
 
         public string LieferantName { get; set; }
     }

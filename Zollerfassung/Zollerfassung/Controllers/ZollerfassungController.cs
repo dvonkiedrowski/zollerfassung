@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.Mvc;
-using Zollerfassung.Models;
 
 namespace Zollerfassung.Controllers
 {
@@ -8,8 +7,7 @@ namespace Zollerfassung.Controllers
     {
         public ActionResult Index()
         {
-            ZollerfassungDbContext context = new ZollerfassungDbContext();
-            return View(context.Zollerfassung);
+            return View();
         }
     }
 }
