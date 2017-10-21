@@ -8,6 +8,8 @@ import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { de } from 'ngx-bootstrap/locale';
 import { DataGrid } from './datagrid.component';
+import { Lieferant } from './lieferant.component';
+import { BaseDataGrid } from './baseDatagrid.component';
 import { AddButton } from './addButton.component';
 import { Main } from './main.component';
 
@@ -22,8 +24,8 @@ import { Main } from './main.component';
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [DataGrid, AddButton, Main],
-    bootstrap: [Main]
+    declarations: [DataGrid, AddButton, Main, BaseDataGrid, Lieferant],
+    bootstrap: [ Lieferant]
 })
 
 export class AppModule { }

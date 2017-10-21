@@ -13,6 +13,8 @@ var forms_1 = require("@angular/forms");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ng2_table_1 = require("ng2-table/ng2-table");
 var datagrid_component_1 = require("./datagrid.component");
+var lieferant_component_1 = require("./lieferant.component");
+var baseDatagrid_component_1 = require("./baseDatagrid.component");
 var addButton_component_1 = require("./addButton.component");
 var main_component_1 = require("./main.component");
 var AppModule = (function () {
@@ -32,8 +34,8 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule
         ],
-        declarations: [datagrid_component_1.DataGrid, addButton_component_1.AddButton, main_component_1.Main],
-        bootstrap: [main_component_1.Main]
+        declarations: [datagrid_component_1.DataGrid, addButton_component_1.AddButton, main_component_1.Main, baseDatagrid_component_1.BaseDataGrid, lieferant_component_1.Lieferant],
+        bootstrap: [lieferant_component_1.Lieferant]
     })
 ], AppModule);
 exports.AppModule = AppModule;
