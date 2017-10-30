@@ -7,6 +7,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bs-datepicker.css" rel="stylesheet" type="text/css" />
+    <base href="/" />
 
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
@@ -31,14 +32,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Zollerfassung", "Index", "Zollerfassung", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="/zollerfassung" class="navbar-brand">Zollerfassung</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/Lieferant/Index">Lieferant</a></li>
-                    <li><a href="/Herkunft/Index">Herkunft</a></li>
-                    <li><a href="/Gasart/Index">Gasart</a></li>
-                    <li><a href="/Spediteur/Index">Spediteur</a></li>
+                    <li><a href="/lieferant">Lieferant</a></li>
+                    <li><a href="/herkunft">Herkunft</a></li>
+                    <li><a href="/gasart">Gasart</a></li>
+                    <li><a href="/spediteur">Spediteur</a></li>
                 </ul>
             </div>
         </div>

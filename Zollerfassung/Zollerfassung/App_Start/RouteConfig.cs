@@ -13,10 +13,19 @@ namespace Zollerfassung
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // This need to stay deactivated for the Angular2 router mapping
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Zollerfassung", action = "Index", id = UrlParameter.Optional }
+            //);
+
+            // This maps every request to the only MVC Controller
+            // All other routing is done in Angular2 router
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Zollerfassung", action = "Index", id = UrlParameter.Optional }
+                name: "Angular",
+                url: "{*url}",
+                defaults: new { controller = "Zollerfassung", action = "Index" }
             );
         }
     }

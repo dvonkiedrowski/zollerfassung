@@ -7,16 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var Main = (function () {
-    function Main() {
+var Zollerfassung = (function () {
+    function Zollerfassung() {
     }
-    return Main;
+    return Zollerfassung;
 }());
-Main = __decorate([
+Zollerfassung = __decorate([
     core_1.Component({
-        selector: 'main',
-        template: '<router-outlet></router-outlet>'
+        selector: 'zollerfasung',
+        template: '<add-button (onSuccess)="gridComponent.reloadData()"></add-button>' +
+            '<data-grid #gridComponent>Loading Angular 2 App using Visual Studio 2017...</data-grid>'
     })
-], Main);
-exports.Main = Main;
-//# sourceMappingURL=main.component.js.map
+], Zollerfassung);
+exports.Zollerfassung = Zollerfassung;
+//# sourceMappingURL=zollerfassung.component.js.map

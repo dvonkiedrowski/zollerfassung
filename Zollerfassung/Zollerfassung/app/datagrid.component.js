@@ -118,6 +118,8 @@ var DataGrid = (function () {
         filteredData = tempArray;
         return filteredData;
     };
+    DataGrid.prototype.onCellClick = function () {
+    };
     DataGrid.prototype.onChangeTable = function (config, page) {
         if (page === void 0) { page = { page: this.page, itemsPerPage: this.itemsPerPage }; }
         if (config.filtering) {

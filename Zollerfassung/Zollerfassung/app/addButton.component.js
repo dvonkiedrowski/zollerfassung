@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
+require("moment");
 require("rxjs/add/operator/map");
 var AddButton = (function () {
     function AddButton(http, modalService) {

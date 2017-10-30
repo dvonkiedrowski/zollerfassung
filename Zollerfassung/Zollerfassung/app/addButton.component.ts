@@ -4,6 +4,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { Http } from '@angular/http';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import 'moment';
 import 'rxjs/add/operator/map'
 
 @Component({

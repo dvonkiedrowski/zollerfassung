@@ -142,10 +142,6 @@
     <Compile Include="ApiControllers\ZollerfassungController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\GasArtController.cs" />
-    <Compile Include="Controllers\SpediteurController.cs" />
-    <Compile Include="Controllers\HerkunftController.cs" />
-    <Compile Include="Controllers\LieferantController.cs" />
     <Compile Include="Controllers\ZollerfassungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,10 +175,6 @@
     <Content Include="Views\Zollerfassung\Index.cshtml" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
-    <Content Include="Views\Spediteur\Index.cshtml" />
-    <Content Include="Views\Herkunft\Index.cshtml" />
-    <Content Include="Views\Lieferant\Index.cshtml" />
-    <Content Include="Views\GasArt\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -209,6 +201,7 @@
     <TypeScriptCompile Include="app\main.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\zollerfassung.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

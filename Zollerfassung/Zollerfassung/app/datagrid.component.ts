@@ -131,6 +131,10 @@ export class DataGrid {
         return filteredData;
     }
 
+    public onCellClick() {
+
+    }
+
     public onChangeTable(config: any, page: any = { page: this.page, itemsPerPage: this.itemsPerPage }): any {
         if (config.filtering) {
             Object.assign(this.config.filtering, config.filtering);

@@ -9,14 +9,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ng2_table_1 = require("ng2-table/ng2-table");
+//import { defineLocale } from 'ngx-bootstrap/bs-moment';
+//import { de } from 'ngx-bootstrap/locale';
 var datagrid_component_1 = require("./datagrid.component");
 var lieferant_component_1 = require("./lieferant.component");
 var baseDatagrid_component_1 = require("./baseDatagrid.component");
 var addButton_component_1 = require("./addButton.component");
+var zollerfassung_component_1 = require("./zollerfassung.component");
 var main_component_1 = require("./main.component");
+var appRoutes = [
+    { path: 'lieferant', component: lieferant_component_1.Lieferant },
+    { path: 'zollerfassung', component: zollerfassung_component_1.Zollerfassung },
+    {
+        path: '',
+        redirectTo: '/zollerfassung',
+        pathMatch: 'full'
+    },
+    { path: '**', component: zollerfassung_component_1.Zollerfassung }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,6 +39,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
+            router_1.RouterModule.forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+            ),
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
             ngx_bootstrap_1.ModalModule.forRoot(),
@@ -34,8 +50,8 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule
         ],
-        declarations: [datagrid_component_1.DataGrid, addButton_component_1.AddButton, main_component_1.Main, baseDatagrid_component_1.BaseDataGrid, lieferant_component_1.Lieferant],
-        bootstrap: [lieferant_component_1.Lieferant]
+        declarations: [datagrid_component_1.DataGrid, addButton_component_1.AddButton, main_component_1.Main, baseDatagrid_component_1.BaseDataGrid, lieferant_component_1.Lieferant, zollerfassung_component_1.Zollerfassung],
+        bootstrap: [main_component_1.Main]
     })
 ], AppModule);
 exports.AppModule = AppModule;
