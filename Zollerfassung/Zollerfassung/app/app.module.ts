@@ -14,9 +14,16 @@ import { BaseDataGrid } from './baseDatagrid.component';
 import { AddButton } from './addButton.component';
 import { Zollerfassung } from './zollerfassung.component';
 import { Main } from './main.component';
+import { Spediteur } from './spediteur.component';
+import { Gasart } from './gasart.component';
+import { Herkunft } from './herkunft.component';
+import { AddButtonBase } from './addbuttonBase.component';
 
 const appRoutes: Routes = [
     { path: 'lieferant', component: Lieferant },
+    { path: 'spediteur', component: Spediteur },
+    { path: 'gasart', component: Gasart },
+    { path: 'herkunft', component: Herkunft },
     { path: 'zollerfassung', component: Zollerfassung },
     {
         path: '',
@@ -30,7 +37,7 @@ const appRoutes: Routes = [
     imports: [
         RouterModule.forRoot(
             appRoutes,
-            { enableTracing: true } // <-- debugging purposes only
+            { enableTracing: false } // <-- debugging purposes only
         ),
         BrowserModule,
         HttpModule,
@@ -41,7 +48,18 @@ const appRoutes: Routes = [
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [DataGrid, AddButton, Main, BaseDataGrid, Lieferant, Zollerfassung],
+    declarations: [
+        DataGrid,
+        AddButton,
+        Main,
+        BaseDataGrid,
+        Lieferant,
+        Spediteur,
+        Herkunft,
+        Gasart,
+        Zollerfassung,
+        AddButtonBase
+    ],
     bootstrap: [Main]
 })
 

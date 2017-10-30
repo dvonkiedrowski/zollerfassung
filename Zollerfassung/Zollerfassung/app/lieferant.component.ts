@@ -4,7 +4,7 @@ import { AddButton } from './addButton.component';
 
 @Component({
     selector: 'lieferant',
-    template: '<add-button (onSuccess)="gridComponent.reloadData()"></add-button>' +
+    template: '<add-button-base entity="Lieferant" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
     '<base-data-grid entity="Lieferant" #gridComponent></base-data-grid>'
 })
 

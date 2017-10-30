@@ -112,6 +112,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\addbuttonBase.component.html" />
     <Content Include="app\addbutton.component.html" />
     <Content Include="app\datagrid.component.html" />
     <Content Include="Content\bootstrap.css" />
@@ -194,9 +195,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\addbuttonBase.component.ts" />
     <TypeScriptCompile Include="app\addbutton.component.ts" />
     <TypeScriptCompile Include="app\baseDatagrid.component.ts" />
     <TypeScriptCompile Include="app\datagrid.component.ts" />
+    <TypeScriptCompile Include="app\spediteur.component.ts" />
+    <TypeScriptCompile Include="app\herkunft.component.ts" />
+    <TypeScriptCompile Include="app\gasart.component.ts" />
     <TypeScriptCompile Include="app\lieferant.component.ts" />
     <TypeScriptCompile Include="app\main.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />

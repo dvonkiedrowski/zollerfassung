@@ -1,0 +1,36 @@
+﻿<div class="row form-group margin-top-10">
+    <div class="col-md-12">
+        <button type="button"
+                class="btn btn-primary pull-right"
+                (click)="openModal(template)">
+            Neu Erfassen
+        </button>
+    </div>
+</div>
+
+<template #template>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">{{entity}}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row form-group">
+                <label for="name" class="col-md-3 col-form-label">Name</label>
+                <div class="col-md-9">
+                    <input id="name" type="text" class="form-control" [(ngModel)]="model.Name" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Abbrechen</button>
+                    <button type="button" class="btn btn-primary pull-right" (click)="onSave()">Speichern</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

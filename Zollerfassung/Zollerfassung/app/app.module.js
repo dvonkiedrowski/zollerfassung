@@ -21,8 +21,15 @@ var baseDatagrid_component_1 = require("./baseDatagrid.component");
 var addButton_component_1 = require("./addButton.component");
 var zollerfassung_component_1 = require("./zollerfassung.component");
 var main_component_1 = require("./main.component");
+var spediteur_component_1 = require("./spediteur.component");
+var gasart_component_1 = require("./gasart.component");
+var herkunft_component_1 = require("./herkunft.component");
+var addbuttonBase_component_1 = require("./addbuttonBase.component");
 var appRoutes = [
     { path: 'lieferant', component: lieferant_component_1.Lieferant },
+    { path: 'spediteur', component: spediteur_component_1.Spediteur },
+    { path: 'gasart', component: gasart_component_1.Gasart },
+    { path: 'herkunft', component: herkunft_component_1.Herkunft },
     { path: 'zollerfassung', component: zollerfassung_component_1.Zollerfassung },
     {
         path: '',
@@ -39,7 +46,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
-            router_1.RouterModule.forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+            router_1.RouterModule.forRoot(appRoutes, { enableTracing: false } // <-- debugging purposes only
             ),
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
@@ -50,7 +57,18 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule
         ],
-        declarations: [datagrid_component_1.DataGrid, addButton_component_1.AddButton, main_component_1.Main, baseDatagrid_component_1.BaseDataGrid, lieferant_component_1.Lieferant, zollerfassung_component_1.Zollerfassung],
+        declarations: [
+            datagrid_component_1.DataGrid,
+            addButton_component_1.AddButton,
+            main_component_1.Main,
+            baseDatagrid_component_1.BaseDataGrid,
+            lieferant_component_1.Lieferant,
+            spediteur_component_1.Spediteur,
+            herkunft_component_1.Herkunft,
+            gasart_component_1.Gasart,
+            zollerfassung_component_1.Zollerfassung,
+            addbuttonBase_component_1.AddButtonBase
+        ],
         bootstrap: [main_component_1.Main]
     })
 ], AppModule);

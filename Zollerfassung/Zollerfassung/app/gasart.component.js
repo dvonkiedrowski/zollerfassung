@@ -7,17 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var Lieferant = (function () {
-    function Lieferant() {
+var Gasart = (function () {
+    function Gasart() {
     }
-    return Lieferant;
+    return Gasart;
 }());
-Lieferant = __decorate([
+Gasart = __decorate([
     core_1.Component({
-        selector: 'lieferant',
-        template: '<add-button-base entity="Lieferant" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
-            '<base-data-grid entity="Lieferant" #gridComponent></base-data-grid>'
+        selector: 'gasart',
+        template: '<add-button-base entity="Gasart" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
+            '<base-data-grid entity="Gasart" #gridComponent></base-data-grid>'
     })
-], Lieferant);
-exports.Lieferant = Lieferant;
-//# sourceMappingURL=lieferant.component.js.map
+], Gasart);
+exports.Gasart = Gasart;
+//# sourceMappingURL=gasart.component.js.map
