@@ -8,6 +8,8 @@ import { PaginationModule, ModalModule, BsDatepickerModule } from 'ngx-bootstrap
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 //import { defineLocale } from 'ngx-bootstrap/bs-moment';
 //import { de } from 'ngx-bootstrap/locale';
+
+// Custom components
 import { DataGrid } from './datagrid.component';
 import { Lieferant } from './lieferant.component';
 import { BaseDataGrid } from './baseDatagrid.component';

@@ -15,6 +15,7 @@ var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ng2_table_1 = require("ng2-table/ng2-table");
 //import { defineLocale } from 'ngx-bootstrap/bs-moment';
 //import { de } from 'ngx-bootstrap/locale';
+// Custom components
 var datagrid_component_1 = require("./datagrid.component");
 var lieferant_component_1 = require("./lieferant.component");
 var baseDatagrid_component_1 = require("./baseDatagrid.component");
