@@ -14,6 +14,7 @@
 
             // angular bundles  
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
+            '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
             '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
             '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
             '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
@@ -28,7 +29,8 @@
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
             'moment': 'npm:moment/moment.js',
             'ngx-bootstrap': 'npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.js',
-            'ng2-table': 'npm:ng2-table'
+            'ng2-table': 'npm:ng2-table',
+            'primeng': 'npm:primeng'
         },
         // packages tells the System loader how to load when no filename and/or no extension  
         packages: {
@@ -44,6 +46,9 @@
                 defaultExtension: 'js'
             },
             'ng2-table': {
+                defaultExtension: 'js'
+            },
+            primeng: {
                 defaultExtension: 'js'
             }
         }
