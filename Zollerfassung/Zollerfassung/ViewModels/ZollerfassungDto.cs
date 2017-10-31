@@ -17,6 +17,8 @@ namespace Zollerfassung.ViewModels
 
         public string Bemerkung { get; set; }
 
+        public bool Storniert { get; set; }
+
         public BaseDtoWithName Spediteur { get; set; }
 
         public string SpediteurName { get; set; }

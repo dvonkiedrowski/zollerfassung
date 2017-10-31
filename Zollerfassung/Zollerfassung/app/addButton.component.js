@@ -73,7 +73,7 @@ var AddButton = (function () {
         }
     };
     AddButton.prototype.onCancellation = function () {
-        this.model.Storno = true;
+        this.model.Storniert = true;
         this.onSave();
     };
     AddButton.prototype.openModal = function () {

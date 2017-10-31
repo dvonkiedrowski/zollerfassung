@@ -73,7 +73,7 @@ export class AddButton {
     }
 
     public onCancellation(): void {
-        this.model.Storno = true;
+        this.model.Storniert = true;
         this.onSave();
     }
 

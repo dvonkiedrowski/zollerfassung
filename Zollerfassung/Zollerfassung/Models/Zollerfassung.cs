@@ -17,6 +17,8 @@ namespace Zollerfassung.Models
 
         public string Bemerkung { get; set; }
 
+        public bool Storniert { get; set; }
+
         public virtual Spediteur Spediteur { get; set; }
 
         public virtual Herkunft Herkunft { get; set; }
