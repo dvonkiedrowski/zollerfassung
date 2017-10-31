@@ -61,12 +61,40 @@ var AddButton = (function () {
     AddButton.prototype.onSave = function () {
         var _this = this;
         this.modalRef.hide();
-        this.http.post('/api/Zollerfassung', this.model).subscribe(function (data) {
-            _this.onSuccess.emit(null);
-        });
+        if (this.model.ID) {
+            this.http.put('/api/Zollerfassung/' + this.model.ID, this.model).subscribe(function (data) {
+                _this.onSuccess.emit(null);
+            });
+        }
+        else {
+            this.http.post('/api/Zollerfassung', this.model).subscribe(function (data) {
+                _this.onSuccess.emit(null);
+            });
+        }
     };
-    AddButton.prototype.openModal = function (template) {
-        this.modalRef = this.modalService.show(template);
+    AddButton.prototype.onCancellation = function () {
+        this.model.Storno = true;
+        this.onSave();
+    };
+    AddButton.prototype.openModal = function () {
+        this.modalRef = this.modalService.show(this.templateref);
+    };
+    AddButton.prototype.openEditModal = function (data) {
+        this.model = Object.assign({}, data);
+        // workaround for binding to entities
+        this.model.Spediteur = this.spediteure.find(function (s) {
+            return s.ID === data.Spediteur.ID && s.Name === data.Spediteur.Name;
+        });
+        this.model.Lieferant = this.lieferanten.find(function (s) {
+            return s.ID === data.Lieferant.ID && s.Name === data.Lieferant.Name;
+        });
+        this.model.Herkunft = this.herkuenfte.find(function (s) {
+            return s.ID === data.Herkunft.ID && s.Name === data.Herkunft.Name;
+        });
+        this.model.Gasart = this.gasarten.find(function (s) {
+            return s.ID === data.Gasart.ID && s.Name === data.Gasart.Name;
+        });
+        this.modalRef = this.modalService.show(this.templateref);
     };
     return AddButton;
 }());
@@ -74,6 +102,10 @@ __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], AddButton.prototype, "onSuccess", void 0);
+__decorate([
+    core_1.ViewChild('template'),
+    __metadata("design:type", core_1.TemplateRef)
+], AddButton.prototype, "templateref", void 0);
 AddButton = __decorate([
     core_1.Component({
         selector: 'add-button',

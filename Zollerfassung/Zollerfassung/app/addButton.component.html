@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <button type="button"
                 class="btn btn-primary pull-right"
-                (click)="openModal(template)">
-            Neu Erfassen
+                (click)="openModal()">
+            Neue Buchung
         </button>
     </div>
 </div>
@@ -20,19 +20,19 @@
             <div class="row form-group">
                 <label for="liefno" class="col-md-3 col-form-label">Lieferschein-Nr.</label>
                 <div class="col-md-9">
-                    <input id="liefno" type="text" class="form-control" [(ngModel)]="model.LIEF_NR" />
+                    <input [disabled]="model.ID" id="liefno" type="text" class="form-control" [(ngModel)]="model.LIEF_NR" />
                 </div>
             </div>
             <div class="row form-group">
                 <label for="kennz" class="col-md-3 col-form-label">Kennzeichen</label>
                 <div class="col-md-9">
-                    <input id="kennz" type="text" class="form-control" [(ngModel)]="model.Kennzeichen" />
+                    <input [disabled]="model.ID" id="kennz" type="text" class="form-control" [(ngModel)]="model.Kennzeichen" />
                 </div>
             </div>
             <div class="row form-group">
                 <label for="spediteur" class="col-md-3 col-form-label">Spediteur</label>
                 <div class="col-md-9">
-                    <select [(ngModel)]="model.Spediteur" id="spediteur" class="form-control">
+                    <select [disabled]="model.ID" [(ngModel)]="model.Spediteur" id="spediteur" class="form-control">
                         <option *ngFor="let c of spediteure" [ngValue]="c">{{c.Name}}</option>
                     </select>
                 </div>
@@ -40,7 +40,7 @@
             <div class="row form-group">
                 <label for="lieferant" class="col-md-3 col-form-label">Lieferant</label>
                 <div class="col-md-9">
-                    <select [(ngModel)]="model.Lieferant" id="lieferant" class="form-control">
+                    <select [disabled]="model.ID" [(ngModel)]="model.Lieferant" id="lieferant" class="form-control">
                         <option *ngFor="let c of lieferanten" [ngValue]="c">{{c.Name}}</option>
                     </select>
                 </div>
@@ -48,7 +48,7 @@
             <div class="row form-group">
                 <label for="herkunft" class="col-md-3 col-form-label">Herkunft</label>
                 <div class="col-md-9">
-                    <select [(ngModel)]="model.Herkunft" id="herkunft" class="form-control">
+                    <select [disabled]="model.ID" [(ngModel)]="model.Herkunft" id="herkunft" class="form-control">
                         <option *ngFor="let c of herkuenfte" [ngValue]="c">{{c.Name}}</option>
                     </select>
                 </div>
@@ -56,7 +56,7 @@
             <div class="row form-group">
                 <label for="gasart" class="col-md-3 col-form-label">Gasart</label>
                 <div class="col-md-9">
-                    <select [(ngModel)]="model.Gasart" id="gasart" class="form-control">
+                    <select [disabled]="model.ID" [(ngModel)]="model.Gasart" id="gasart" class="form-control">
                         <option *ngFor="let c of gasarten" [ngValue]="c">{{c.Name}}</option>
                     </select>
                 </div>
@@ -64,19 +64,19 @@
             <div class="row form-group">
                 <label for="datzu" class="col-md-3 col-form-label">Datum Zugang</label>
                 <div class="col-md-9">
-                    <input class="form-control" [(ngModel)]="model.DAT_Zugang" placeholder="Wähle Datum..." type="text" bsDatepicker #datZu="bsDatepicker">
+                    <input [disabled]="model.ID" class="form-control" [(ngModel)]="model.DAT_Zugang" placeholder="Wähle Datum..." type="text" bsDatepicker #datZu="bsDatepicker">
                 </div>
             </div>
             <div class="row form-group">
                 <label for="menge" class="col-md-3 col-form-label">Menge (kg)</label>
                 <div class="col-md-9">
-                    <input id="menge" type="text" class="form-control" [(ngModel)]="model.Menge" />
+                    <input [disabled]="model.ID" id="menge" type="text" class="form-control" [(ngModel)]="model.Menge" />
                 </div>
             </div>
             <div class="row form-group">
                 <label for="datab" class="col-md-3 col-form-label">Datum Abgang</label>
                 <div class="col-md-9">
-                    <input id="datab" [(ngModel)]="model.DAT_Abgang" placeholder="Wähle Datum..." type="text" class="form-control" bsDatepicker #dpAb="bsDatepicker" [bsConfig]="bsConfig">
+                    <input [disabled]="model.ID && model.DAT_Abgang" id="datab" [(ngModel)]="model.DAT_Abgang" placeholder="Wähle Datum..." type="text" class="form-control" bsDatepicker #dpAb="bsDatepicker" [bsConfig]="bsConfig">
                 </div>
             </div>
             <div class="row form-group">
@@ -90,6 +90,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <button type="button" class="btn btn-default" (click)="modalRef.hide()">Abbrechen</button>
+                    <button *ngIf="model.ID" type="button" class="btn btn-danger" (click)="onCancellation()">Storno</button>
                     <button type="button" class="btn btn-primary pull-right" (click)="onSave()">Speichern</button>
                 </div>
             </div>

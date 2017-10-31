@@ -1,4 +1,4 @@
-﻿import { Component, TemplateRef, Output, EventEmitter, Input  } from '@angular/core';
+﻿import { Component, TemplateRef, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { Http } from '@angular/http';
@@ -15,6 +15,7 @@ import 'rxjs/add/operator/map'
 export class AddButtonBase {
     @Input() entity: string; 
     @Output() onSuccess = new EventEmitter();
+    @ViewChild('template') templateref: TemplateRef<any>;
     public bsConfig: Partial<BsDatepickerConfig>;
     public modalRef: BsModalRef;
     public model: any = {
@@ -27,12 +28,23 @@ export class AddButtonBase {
 
     public onSave(): void {
         this.modalRef.hide();
-        this.http.post('/api/' + this.entity, this.model).subscribe(data => {
-            this.onSuccess.emit(null);
-        });
+        if (this.model.ID) {
+            this.http.put('/api/' + this.entity + '/' + this.model.ID, this.model).subscribe(data => {
+                this.onSuccess.emit(null);
+            });
+        } else {
+            this.http.post('/api/' + this.entity, this.model).subscribe(data => {
+                this.onSuccess.emit(null);
+            });
+        }
     }
 
-    public openModal(template: TemplateRef<any>): void {
-        this.modalRef = this.modalService.show(template);
+    public openModal(): void {
+        this.modalRef = this.modalService.show(this.templateref);
+    }
+
+    public openEditModal(data: any): void {
+        this.model = Object.assign({}, data);
+        this.modalRef = this.modalService.show(this.templateref);
     }
 }

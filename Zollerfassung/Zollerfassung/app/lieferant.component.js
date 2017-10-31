@@ -15,8 +15,8 @@ var Lieferant = (function () {
 Lieferant = __decorate([
     core_1.Component({
         selector: 'lieferant',
-        template: '<add-button-base entity="Lieferant" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
-            '<base-data-grid entity="Lieferant" #gridComponent></base-data-grid>'
+        template: '<add-button-base #buttonComponent entity="Lieferant" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
+            '<base-data-grid (onClick)="buttonComponent.openEditModal($event)" entity="Lieferant" #gridComponent></base-data-grid>'
     })
 ], Lieferant);
 exports.Lieferant = Lieferant;

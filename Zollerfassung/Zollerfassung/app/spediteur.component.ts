@@ -4,8 +4,8 @@ import { AddButton } from './addButton.component';
 
 @Component({
     selector: 'spediteur',
-    template: '<add-button-base entity="Spediteur" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
-    '<base-data-grid entity="Spediteur" #gridComponent></base-data-grid>'
+    template: '<add-button-base #buttonComponent entity="Spediteur" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
+    '<base-data-grid (onClick)="buttonComponent.openEditModal($event)" entity="Spediteur" #gridComponent></base-data-grid>'
 })
 
 export class Spediteur {}

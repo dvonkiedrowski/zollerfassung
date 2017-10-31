@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var BaseDataGrid = (function () {
     function BaseDataGrid(http) {
+        this.onClick = new core_1.EventEmitter();
         this.rows = [];
         this.columns = [
             { title: 'Name', name: 'Name' }
@@ -123,12 +124,19 @@ var BaseDataGrid = (function () {
         this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
         this.length = sortedData.length;
     };
+    BaseDataGrid.prototype.onCellClick = function (data) {
+        this.onClick.emit(data.row);
+    };
     return BaseDataGrid;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", String)
 ], BaseDataGrid.prototype, "entity", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], BaseDataGrid.prototype, "onClick", void 0);
 BaseDataGrid = __decorate([
     core_1.Component({
         selector: 'base-data-grid',

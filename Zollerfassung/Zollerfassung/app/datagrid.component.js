@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var DataGrid = (function () {
     function DataGrid(http) {
+        this.onClick = new core_1.EventEmitter();
         this.rows = [];
         this.columns = [
             { title: 'Lfd. Nr.', name: 'ID' },
@@ -118,7 +119,8 @@ var DataGrid = (function () {
         filteredData = tempArray;
         return filteredData;
     };
-    DataGrid.prototype.onCellClick = function () {
+    DataGrid.prototype.onCellClick = function (data) {
+        this.onClick.emit(data.row);
     };
     DataGrid.prototype.onChangeTable = function (config, page) {
         if (page === void 0) { page = { page: this.page, itemsPerPage: this.itemsPerPage }; }
@@ -135,6 +137,10 @@ var DataGrid = (function () {
     };
     return DataGrid;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], DataGrid.prototype, "onClick", void 0);
 DataGrid = __decorate([
     core_1.Component({
         selector: 'data-grid',

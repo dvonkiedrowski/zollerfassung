@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { Http } from '@angular/http';
@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map'
 
 export class BaseDataGrid {
     @Input() entity: string; 
+    @Output() onClick = new EventEmitter();
     http: Http;
     public rows: Array<any> = [];
     public columns: Array<any> = [
@@ -138,5 +139,9 @@ export class BaseDataGrid {
         let sortedData = this.changeSort(filteredData, this.config);
         this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
         this.length = sortedData.length;
+    }
+
+    public onCellClick(data: any) {
+        this.onClick.emit(data.row);
     }
 }

@@ -15,8 +15,8 @@ var Gasart = (function () {
 Gasart = __decorate([
     core_1.Component({
         selector: 'gasart',
-        template: '<add-button-base entity="Gasart" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
-            '<base-data-grid entity="Gasart" #gridComponent></base-data-grid>'
+        template: '<add-button-base #buttonComponent entity="Gasart" (onSuccess)="gridComponent.reloadData()"></add-button-base>' +
+            '<base-data-grid (onClick)="buttonComponent.openEditModal($event)" entity="Gasart" #gridComponent></base-data-grid>'
     })
 ], Gasart);
 exports.Gasart = Gasart;

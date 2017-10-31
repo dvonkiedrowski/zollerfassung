@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, Output, EventEmitter } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { Http } from '@angular/http';
@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map'
 
 export class DataGrid {
     http: Http;
+    @Output() onClick = new EventEmitter();
     public rows: Array<any> = [];
     public columns: Array<any> = [
         { title: 'Lfd. Nr.', name: 'ID' },
@@ -131,8 +132,8 @@ export class DataGrid {
         return filteredData;
     }
 
-    public onCellClick() {
-
+    public onCellClick(data: any) {
+        this.onClick.emit(data.row);
     }
 
     public onChangeTable(config: any, page: any = { page: this.page, itemsPerPage: this.itemsPerPage }): any {

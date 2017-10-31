@@ -1,4 +1,4 @@
-﻿import { Component, TemplateRef, Output, EventEmitter  } from '@angular/core';
+﻿import { Component, TemplateRef, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { Http } from '@angular/http';
@@ -14,6 +14,7 @@ import 'rxjs/add/operator/map'
 
 export class AddButton {
     @Output() onSuccess = new EventEmitter();
+    @ViewChild('template') templateref: TemplateRef<any>;
     public bsConfig: Partial<BsDatepickerConfig>;
     public gasarten: Array<any> = [];
     public herkuenfte: Array<any> = [];
@@ -60,12 +61,41 @@ export class AddButton {
 
     public onSave(): void {
         this.modalRef.hide();
-        this.http.post('/api/Zollerfassung', this.model).subscribe(data => {
-            this.onSuccess.emit(null);
-        });
+        if (this.model.ID) {
+            this.http.put('/api/Zollerfassung/' + this.model.ID, this.model).subscribe(data => {
+                this.onSuccess.emit(null);
+            });
+        } else {
+            this.http.post('/api/Zollerfassung', this.model).subscribe(data => {
+                this.onSuccess.emit(null);
+            });
+        }
     }
 
-    public openModal(template: TemplateRef<any>): void {
-        this.modalRef = this.modalService.show(template);
+    public onCancellation(): void {
+        this.model.Storno = true;
+        this.onSave();
+    }
+
+    public openModal(): void {
+        this.modalRef = this.modalService.show(this.templateref);
+    }
+
+    public openEditModal(data: any): void {
+        this.model = Object.assign({}, data);
+
+        // workaround for binding to entities
+        this.model.Spediteur = this.spediteure.find(function (s) {
+            return s.ID === data.Spediteur.ID && s.Name === data.Spediteur.Name;
+        });
+        this.model.Lieferant = this.lieferanten.find(function (s) {
+            return s.ID === data.Lieferant.ID && s.Name === data.Lieferant.Name;
+        }); this.model.Herkunft = this.herkuenfte.find(function (s) {
+            return s.ID === data.Herkunft.ID && s.Name === data.Herkunft.Name;
+        }); this.model.Gasart = this.gasarten.find(function (s) {
+            return s.ID === data.Gasart.ID && s.Name === data.Gasart.Name;
+        });
+
+        this.modalRef = this.modalService.show(this.templateref);
     }
 }

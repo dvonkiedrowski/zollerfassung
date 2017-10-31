@@ -26,12 +26,23 @@ var AddButtonBase = (function () {
     AddButtonBase.prototype.onSave = function () {
         var _this = this;
         this.modalRef.hide();
-        this.http.post('/api/' + this.entity, this.model).subscribe(function (data) {
-            _this.onSuccess.emit(null);
-        });
+        if (this.model.ID) {
+            this.http.put('/api/' + this.entity + '/' + this.model.ID, this.model).subscribe(function (data) {
+                _this.onSuccess.emit(null);
+            });
+        }
+        else {
+            this.http.post('/api/' + this.entity, this.model).subscribe(function (data) {
+                _this.onSuccess.emit(null);
+            });
+        }
     };
-    AddButtonBase.prototype.openModal = function (template) {
-        this.modalRef = this.modalService.show(template);
+    AddButtonBase.prototype.openModal = function () {
+        this.modalRef = this.modalService.show(this.templateref);
+    };
+    AddButtonBase.prototype.openEditModal = function (data) {
+        this.model = Object.assign({}, data);
+        this.modalRef = this.modalService.show(this.templateref);
     };
     return AddButtonBase;
 }());
@@ -43,6 +54,10 @@ __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], AddButtonBase.prototype, "onSuccess", void 0);
+__decorate([
+    core_1.ViewChild('template'),
+    __metadata("design:type", core_1.TemplateRef)
+], AddButtonBase.prototype, "templateref", void 0);
 AddButtonBase = __decorate([
     core_1.Component({
         selector: 'add-button-base',
