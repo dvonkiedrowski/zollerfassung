@@ -20,6 +20,10 @@ namespace Zollerfassung.Models
 
         public DbSet<Zollerfassung> Zollerfassung { get; set; }
 
+        public DbSet<Mandant> Mandant { get; set; }
+
+        public DbSet<Steuer> Steuer { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

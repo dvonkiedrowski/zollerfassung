@@ -19,6 +19,12 @@ namespace Zollerfassung.Models
 
         public bool Storniert { get; set; }
 
+        public decimal EK_Preis { get; set; }
+
+        public string Einheit { get; set; }
+
+        public int Temperatur { get; set; }
+
         public virtual Spediteur Spediteur { get; set; }
 
         public virtual Herkunft Herkunft { get; set; }
@@ -26,5 +32,10 @@ namespace Zollerfassung.Models
         public virtual Gasart Gasart { get; set; }
 
         public virtual Lieferant Lieferant { get; set; }
+
+        public Zollerfassung()
+        {
+            this.Temperatur = 12;
+        }
     }
 }

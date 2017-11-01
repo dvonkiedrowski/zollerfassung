@@ -19,6 +19,12 @@ namespace Zollerfassung.ViewModels
 
         public bool Storniert { get; set; }
 
+        public decimal EK_Preis { get; set; }
+
+        public string Einheit { get; set; }
+
+        public int Temperatur { get; set; }
+
         public BaseDtoWithName Spediteur { get; set; }
 
         public string SpediteurName { get; set; }

@@ -82,7 +82,7 @@
             <div class="row form-group">
                 <label for="bemerk" class="col-md-3 col-form-label">Anmerkung</label>
                 <div class="col-md-9">
-                    <input id="bemerk" type="text" class="form-control" [(ngModel)]="model.Bemerkung" />
+                    <input [disabled]="model.Storniert" id="bemerk" type="text" class="form-control" [(ngModel)]="model.Bemerkung" />
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                 <div class="col-md-12">
                     <button type="button" class="btn btn-default" (click)="modalRef.hide()">Abbrechen</button>
                     <button *ngIf="model.ID && !model.Storniert" type="button" class="btn btn-danger" (click)="onCancellation()">Storno</button>
-                    <button *ngIf="!model.Storniert" type="button" class="btn btn-primary pull-right" (click)="onSave()">Speichern</button>
+                    <button *ngIf="!model.Storniert" type="button" class="btn btn-primary pull-right" (click)="onSave()">Buchen</button>
                 </div>
             </div>
         </div>

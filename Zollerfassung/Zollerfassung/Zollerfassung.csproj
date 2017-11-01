@@ -169,13 +169,19 @@
     <Compile Include="Migrations\201710311334109_Storno.Designer.cs">
       <DependentUpon>201710311334109_Storno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711011832309_WeitereFelderUndTabellen.cs" />
+    <Compile Include="Migrations\201711011832309_WeitereFelderUndTabellen.Designer.cs">
+      <DependentUpon>201711011832309_WeitereFelderUndTabellen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\BaseEntityWithName.cs" />
     <Compile Include="Models\Base\BaseEntity.cs" />
     <Compile Include="Models\Herkunft.cs" />
     <Compile Include="Models\Gasart.cs" />
     <Compile Include="Models\Lieferant.cs" />
+    <Compile Include="Models\Mandant.cs" />
     <Compile Include="Models\Spediteur.cs" />
+    <Compile Include="Models\Steuer.cs" />
     <Compile Include="Models\Zollerfassung.cs" />
     <Compile Include="Models\ZollerfassungDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710311334109_Storno.resx">
       <DependentUpon>201710311334109_Storno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711011832309_WeitereFelderUndTabellen.resx">
+      <DependentUpon>201711011832309_WeitereFelderUndTabellen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
