@@ -10,17 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var Main = (function () {
-    function Main(router) {
+    function Main(http, router) {
         var _this = this;
+        this.http = http;
         this.router = router;
+        this.mandanten = [];
         router.events.subscribe(function (event) {
             if (event instanceof router_1.NavigationEnd) {
                 _this.currenturl = event.url; // event.url has current url
             }
         });
+        http.get('/api/Mandant')
+            .map(function (res) { return res.json(); })
+            .subscribe(function (mandanten) {
+            _this.mandanten = mandanten;
+        });
     }
+    Main.prototype.setTenantFilter = function (event) {
+        this.http.post('/api/Mandant', this.selectedTenant).subscribe();
+    };
     return Main;
 }());
 Main = __decorate([
@@ -28,7 +39,7 @@ Main = __decorate([
         selector: 'main',
         templateUrl: '/app/main.component.html'
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [http_1.Http, router_1.Router])
 ], Main);
 exports.Main = Main;
 //# sourceMappingURL=main.component.js.map

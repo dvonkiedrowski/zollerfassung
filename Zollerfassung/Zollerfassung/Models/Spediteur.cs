@@ -4,7 +4,7 @@ using Zollerfassung.Models.Base;
 
 namespace Zollerfassung.Models
 {
-    public class Spediteur : BaseEntityWithName
+    public class Spediteur : BaseTenantEntityWithName
     {
         public virtual ICollection<Zollerfassung> Zollerfassung { get; set; }
     }

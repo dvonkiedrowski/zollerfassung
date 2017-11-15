@@ -26,6 +26,8 @@ namespace Zollerfassung
                 cfg.CreateMap<Herkunft, BaseDtoWithName>();
                 cfg.CreateMap<Lieferant, BaseDtoWithName>();
                 cfg.CreateMap<Gasart, BaseDtoWithName>();
+                cfg.CreateMap<Mandant, BaseDtoWithName>();
+                cfg.CreateMap<Steuer, BaseDtoWithName>();
                 cfg.CreateMap<BaseDtoWithName, Spediteur>();
                 cfg.CreateMap<BaseDtoWithName, Herkunft>();
                 cfg.CreateMap<BaseDtoWithName, Lieferant>();

@@ -15,6 +15,13 @@
                 <li [ngClass]="{'active': currenturl === '/gasart'}"><a href="/gasart">Gasart</a></li>
                 <li [ngClass]="{'active': currenturl === '/spediteur'}"><a href="/spediteur">Spediteur</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <select class="from-control" [(ngModel)]="selectedTenant" (ngModelChange)="setTenantFilter($event)">
+                        <option *ngFor="let m of mandanten" [ngValue]="m">{{m.Name}}</option>
+                    </select>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

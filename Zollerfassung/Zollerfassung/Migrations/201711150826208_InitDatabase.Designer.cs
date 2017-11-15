@@ -7,13 +7,13 @@ namespace Zollerfassung.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DATAbgangNullable : IMigrationMetadata
+    public sealed partial class InitDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DATAbgangNullable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708011741104_DATAbgangNullable"; }
+            get { return "201711150826208_InitDatabase"; }
         }
         
         string IMigrationMetadata.Source

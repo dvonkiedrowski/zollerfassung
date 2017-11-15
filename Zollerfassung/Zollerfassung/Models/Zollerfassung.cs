@@ -3,7 +3,7 @@ using Zollerfassung.Models.Base;
 
 namespace Zollerfassung.Models
 {
-    public class Zollerfassung : BaseEntity
+    public class Zollerfassung : BaseTenantEntity
     {
         public string LIEF_NR { get; set; }
 

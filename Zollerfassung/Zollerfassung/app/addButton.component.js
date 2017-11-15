@@ -114,4 +114,4 @@ AddButton = __decorate([
     __metadata("design:paramtypes", [http_1.Http, ngx_bootstrap_1.BsModalService])
 ], AddButton);
 exports.AddButton = AddButton;
-//# sourceMappingURL=addButton.component.js.map
+//# sourceMappingURL=addbutton.component.js.map
